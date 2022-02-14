@@ -1,31 +1,21 @@
 function updateCaseNumber(isIncreasing){
     let caseInpute =document.getElementById('case-number');
-    const total=document.getElementById('totalPrice');
-    const totalTaka=parseInt(total.innerText);
-    if(isIncreasing===true){
-        const caseInputeNumber= parseInt(caseInpute.value)+1;
-        caseInpute.value=caseInputeNumber;
-        const totalMoney= totalTaka+totalTaka;
-    total.innerText=totalMoney;
-    } 
-    else{
-        var caseInputeNumber= parseInt(caseInpute.value);
-        if(caseInputeNumber>0){
-            caseInputeNumber=caseInputeNumber-1; 
-            caseInpute.value=caseInputeNumber;
-        }
-        
+    let caseNumber=caseInpute.value;
+    
+    if(isIncreasing==true){
+        caseNumber= parseInt(caseNumber)+1;
+        caseInpute.innerText=caseNumber;
         
     } 
-     
-
+    else if (caseNumber>0) {
+        caseNumber= parseInt(caseNumber)-1;
+  
+    } 
+    caseInpute.value=caseNumber;
+    const caseTotal=document.getElementById('totalPrice');
+    
+    caseTotal.innerText =caseNumber*59;
     }
-   
-   
-
-
-
-
 document.getElementById('case-plus').addEventListener('click',function(){
     updateCaseNumber(true);
   
